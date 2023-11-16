@@ -82,7 +82,7 @@ export const Explore = async ({ page }: { page: number }) => {
       {/* List of Cars */}
       <Suspense fallback={<p>Loading...</p>}>
         <div className="flex flex-wrap items-center justify-start mx-32 gap-12">
-          {result?.map((car: any) => (
+          {result?.map((car: {[key: string]: any}) => (
             <Link
               href={`/car/${car.id}`}
               key={car.id}
