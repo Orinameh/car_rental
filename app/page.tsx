@@ -1,18 +1,19 @@
+import { ChooseUs } from "./components/ChooseUs";
+import { Explore } from "./components/Explore";
+import { Footer } from "./components/Footer";
 import Hero from "./components/Hero";
-import car from "@/public/assets/car.png";
-import Image from "next/image";
 
-export default function Home() {
+
+export default function Home({searchParams}: {searchParams: {[key: string]: any}}) {
+  const page = searchParams.page ?? 1;
+
   return (
     <main className="overflow-hidden">
       <Hero />
-
-      <Image
-        width={800}
-        className="absolute top-[28rem] -left-8"
-        src={car}
-        alt="car"
-      />
+      <Explore page={+page} />
+      <ChooseUs />
+      {/* Deliberately left the other part */}
+      <Footer />
     </main>
   );
 }
