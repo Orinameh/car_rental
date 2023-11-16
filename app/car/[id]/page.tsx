@@ -16,22 +16,22 @@ const CarItem = async ({ params }: { params: { id: string } }) => {
         <Link href="/" passHref className="flex gap-2 items-center">
           <IoChevronBack /> Back
         </Link>
-        <div className="p-2 mt-4 bg-imgBackground w-[400px] h-[300px] rounded">
+        <div className="p-2 mt-4 bg-imgBackground w-[400px] h-[350px] rounded">
           <div className="flex flex-col">
             <Image
               width={400}
-              height={400}
+              height={300}
               src={result.imageUrl}
               className="rounded"
               alt="car"
               priority
-              style={{ objectFit: "contain", width: "auto", height: "auto" }}
+              style={{ objectFit: "cover", width: "400px", height: "300px" }}
             />
           </div>
         </div>
 
-        <>
-          <p className="mt-4">Inspection</p>
+        <div className="mt-4">
+          <p>Inspection</p>
           {result?.damageMedia?.map((dam: { [key: string]: any }) => (
             <div
               key={dam.name}
@@ -41,7 +41,7 @@ const CarItem = async ({ params }: { params: { id: string } }) => {
               <span className="font-light text-sm">{dam.comment}</span>
             </div>
           ))}
-        </>
+        </div>
         <Link
           className={`bg-primary text-lightGrey outline-none text-xs py-3 px-4 mt-8 rounded flex items-center justify-center gap-2`}
           href={result.websiteUrl}
