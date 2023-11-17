@@ -1,6 +1,8 @@
+
+const api = process.env.API_URL;
 const getPopularCars = async () => {
   const response = await fetch(
-    "https://api.staging.myautochek.com/v1/inventory/make?popular=true"
+    `${api}/make?popular=true`
   );
 
   if (!response.ok) {
@@ -11,7 +13,7 @@ const getPopularCars = async () => {
 
 const getListCars = async ({ page }: { page: number }) => {
   const response = await fetch(
-    `https://api.staging.myautochek.com/v1/inventory/car/search?page=${page}`
+    `${api}/car/search?page=${page}`
   );
 
   if (!response.ok) {
@@ -22,7 +24,7 @@ const getListCars = async ({ page }: { page: number }) => {
 
 const getCar = async (id: string) => {
   const response = await fetch(
-    ` https://api.staging.myautochek.com/v1/inventory/car/${id}`
+    ` ${api}/car/${id}`
   );
 
   if (!response.ok) {
